@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/solid.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/CSS/style.css">
+  <link rel="stylesheet" href="assets/CSS/dark.css">
+  <title>Cart</title>
+</head>
+<body>
+  <header class="position-relative">
+    <div class="container-fluid top-link pt-1" id="notification">
+      <div class="row flex-nowrap align-items-center g-1">
+        <div class="col-11 text-center">
+          <p class="mb-0 gray"><i class="uil uil-ticket fs-5"></i> 30% off storewide — Limited time!  <a href="#" class="blue border-bottom border-primary">Shop Now <i class="uil uil-arrow-right"></i></a></p>
+        </div>
+        <div class="col-1 text-end">
+          <i class="uil uil-times gray fs-3" id="deleteNotification"></i>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <button class="navbar-toggler bg-transparent border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="uil uil-bars black">
+            <a class="navbar-brand" href="#"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+          </span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="logo d-lg-block d-none fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body position-relative">
+            <ul class="navbar-nav justify-content-lg-end justify-content-center align-items-lg-center align-items-start flex-grow-1 pt-5 pt-lg-0 gap-4">
+              <li class="nav-item is-border-down">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="shop.html">Shop <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="product.html">Product <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Shop
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="#">Living Room</a></li>
+                  <li><a class="dropdown-item black" href="product.html">Product</a></li>                </ul>
+              </li>
+              <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Product
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="blog.html">Blog</a></li>
+                  <li><a class="dropdown-item black" href="blog_post.html">Blog Post</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav  justify-content-lg-end justify-content-end align-items-lg-center flex-grow-1 pe-3">
+              <li class="nav-item">
+                <form class="position-relative" id="seachForm">
+                  <input type="text"
+                        class="form-control rounded-2 border-1 border-secondary search-bar ps-5"
+                        placeholder="Search..."
+                        aria-label="Search">
+                  <button class="btn position-absolute top-50 start-0 translate-middle-y shadow-none" type="button" id="showSearchBar">
+                      <i class="uil uil-search fs-3"></i>
+                  </button>
+                </form>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <a class="nav-link" href="account.html"><i class="uil uil-user-circle fs-3"></i></a>
+              </li>
+              <li class="nav-item ">
+                <button class="btn" id="darkMode">
+                  <i class="uil uil-moon fs-3"></i>
+                </button>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <button class="cart-btn btn position-relative " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                  <i class="uil uil-shopping-bag fs-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+                </button>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Cart</span> 
+                  <i class="uil uil-shopping-bag fs-3 position-absolute end-0 pe-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">0</span>
+                </a>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Wishlist</span> 
+                  <i class="uil uil-heart fs-3 position-absolute end-0 pe-3"></i>
+                  <span id="wishlist-count" class="position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">2</span>
+                </a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <button class="btn btn-dark w-100 mt-3">
+                  <a href="authentication.html"class="text-light">Sign in</a>
+                </button>
+              </li>
+              <li class="nav-item d-lg-none">
+                <ul class="footer-link-icon d-flex justify-content-start align-items-center text-dark mt-2">
+                  <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5 text-dark"></i></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="cart-btn btn position-relative d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <i class="uil uil-shopping-bag fs-3"></i>
+          <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+        </button>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasNavbarLabel2">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel2"><span class="fw-bold pt-2">Cart</span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body position-relative">
+        <div class="cart-list">
+
+        </div>
+        <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="gray">Subtotal</span>
+            <span class="black subtotal-price">$0.00</span> 
+          </li>
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="black fs-3">Total</span> 
+            <span class="black total-all-price">$0.00</span>
+        </li>
+          <li class="nav-item">
+            <button class="go-cart btn btn-dark w-100 my-3">
+              <a href="#"class="black">Checkout</a>
+            </button>
+          </li>
+          <li class="nav-item text-center">
+            <a href="#" class="black fw-bold border-bottom border-dark">View Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <a href="index.html" class="gray d-lg-none d-block text-start mb-5"><i class="uil uil-angle-left"></i> back</a>
+            <h1>Cart</h1>
+            <ul class="nav nav-pills custom-steps flex-nowrap mb-5 justify-content-center gap-3" id="cartTab" role="tablist">
+              <li class="nav-item">
+                <button class="nav-link active" id="step1-tab" data-bs-toggle="pill" data-bs-target="#step1" type="button">
+                  <span class="step-icon">1</span> Shopping cart
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="step2-tab" data-bs-toggle="pill" data-bs-target="#step2" type="button">
+                  <span class="step-icon">2</span> Checkout details
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="step3-tab" data-bs-toggle="pill" data-bs-target="#step3" type="button">
+                  <span class="step-icon">3</span> Order complete
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container mt-5">
+        <div class="tab-content" id="cartTabContent">
+          <div class="tab-pane fade show active mb-3" id="step1" role="tabpanel">
+            <div class="row">
+              <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
+                <table class="custom-responsive-table2 table align-middle">
+                  <thead class="border-bottom border-secondary ">
+                    <tr class="gray">
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Subtotal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="product-01">
+                        <div class="d-flex align-items-center">
+                          <div class="cart-image me-2">
+                            <img src="assets/imgs/cart1.png" alt="Black Tray Table">
+                          </div>
+                          <div>
+                            <h6 class="mb-1">Tray Table</h6>
+                            <small class="gray d-block">Color: Black</small>
+                            <button class="btn btn-sm gray fw-semibold p-0 btn-remove">
+                              <i class="uil uil-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td >
+                        <div class="quantity-counter d-flex align-items-center justify-content-between mt-3" >
+                          <button class="btn" id="minus-btn"><i class="uil uil-minus"></i></button>
+                          <span class="number gray" id="qty-number">1</span>
+                          <button class="btn" id="plus-btn"><i class="uil uil-plus"></i></button>
+                        </div>
+                      </td>
+                      <td>$19.00</td>
+                      <td class="fw-bold">$38.00</td>
+                    </tr>
+                    <tr>
+                      <td id="product-02">
+                        <div class="d-flex align-items-center">
+                          <div class="cart-image me-2">
+                            <img src="assets/imgs/cart2.png" alt="Red Tray Table">
+                          </div>
+                          <div>
+                            <h6 class="mb-1">Tray Table</h6>
+                            <small class="gray d-block">Color: Red</small>
+                            <button class="btn btn-sm gray fw-semibold p-0 btn-remove">
+                              <i class="uil uil-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="quantity-counter d-flex align-items-center justify-content-between mt-3 ">
+                          <button class="btn" id="minus-btn"><i class="uil uil-minus"></i></button>
+                          <span class="number gray" id="qty-number">1</span>
+                          <button class="btn" id="plus-btn"><i class="uil uil-plus"></i></button>
+                        </div>
+                      </td>
+                      <td>$19.00</td>
+                      <td class="fw-bold">$38.00</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <div class="cart-image me-2">
+                            <img src="assets/imgs/cart3.png" alt="Table lamp">
+                          </div>
+                          <div>
+                            <h6 class="mb-1">Table lamp</h6>
+                            <small class="gray d-block">Color: Gold</small>
+                            <button class="btn btn-sm gray fw-semibold p-0 btn-remove">
+                              <i class="uil uil-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="quantity-counter d-flex align-items-center justify-content-between mt-3 ">
+                          <button class="btn" id="minus-btn"><i class="uil uil-minus"></i></button>
+                          <span class="number gray" id="qty-number">1</span>
+                          <button class="btn" id="plus-btn"><i class="uil uil-plus"></i></button>
+                        </div>
+                      </td>
+                      <td>$39.00</td>
+                      <td class="fw-bold">$39.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="py-4">
+                  <h5>Have a coupon?</h5>
+                  <p class="gray">Add your code for an instant cart discount</p>
+                  <form class="row mt-4 align-items-center justify-content-start">
+                    <div class="col-12 col-md-6">
+                      <div class="input-group border-2 px-0 border border-2">
+                        <span class="input-group-text bg-transparent border-0">
+                          <i class="uil uil-ticket fs-3 gray"></i>
+                        </span>
+                        <input type="text" class="form-control bg-transparent border-0" placeholder="Coupon Code">
+                        <button type="submit" class="btn black">Apply</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-4" data-aos="fade-left" data-aos-duration="1000">
+                <div class="summary-card p-4">
+                  <h5 class="mb-4">Cart Summary</h5>
+                  <div class="d-flex flex-column gap-3 py-2">
+                    <div class="summary-radio active d-flex align-items-center justify-content-between p-2">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label black" for="exampleRadios1">
+                          Free Shipping
+                        </label>
+                      </div>
+                      <span class="black">$0.00</span>
+                    </div>
+                    <div class="summary-radio d-flex align-items-center justify-content-between p-2">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                        <label class="form-check-label black" for="exampleRadios2">
+                          Express shipping
+                        </label>
+                      </div>
+                      <span class="black">+$15.00</span>
+                    </div>
+                    <div class="summary-radio d-flex align-items-center justify-content-between p-2">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                        <label class="form-check-label black" for="exampleRadios3">
+                          Pick Up
+                        </label>
+                      </div>
+                      <span class="black">%21.00</span>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                      <span class="black">Subtotal</span>
+                      <span class="black">$1234.00</span>
+                  </div>
+                  <div class="d-flex justify-content-between py-4">
+                      <span class="fw-semibold black fs-5">Total</span>
+                      <span class="fw-semibold black">$1345.00</span>
+                  </div>
+                  <button class="btn btn-dark checkout-btn w-100 mb-3">
+                      <a href="#" class="text-light">Checkout</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade checkout mb-3" id="step2" role="tabpanel">
+            <div class="row">
+              <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
+                <div class="card border-secondary border-2 border-opacity-50 p-4 mb-4">
+                  <h5 class="mb-4">Contact Information</h5>
+                  <form class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label gray small fw-bold text-uppercase">First Name</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" placeholder="First name">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label gray small fw-bold text-uppercase">Last name</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" placeholder="Last name">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Phone number</label>
+                      <input type="tel" class="form-control border-secondary border-opacity-50" placeholder="Phone number">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Email address</label>
+                      <input type="email" class="form-control border-secondary border-opacity-50" placeholder="Your Email">
+                    </div>
+                  </form>
+                </div>
+                <div class="card border-secondary border-2 border-opacity-50 p-4 mb-4" data-aos="fade-up" data-aos-duration="1000">
+                  <h5 class="mb-4">Shipping Address</h5>
+                  <form class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Street Address *</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" placeholder="Street Address">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Country *</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" placeholder="Country">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Town / City *</label>
+                      <select class="form-select border-secondary border-opacity-50" aria-label="Default select example">
+                        <option selected>Town / City</option>
+                        <option value="london">London</option>
+                        <option value="paris">Paris</option>
+                        <option value="rome">Rome</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label gray small fw-bold text-uppercase">State</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" placeholder="State">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label gray small fw-bold text-uppercase">Zip Code</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" placeholder="Zip Code">
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label gray" for="invalidCheck">
+                          Use a different billing address (optional)
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="card cart border-secondary border-2 border-opacity-50 p-4 mb-4 mt-2" data-aos="fade-up" data-aos-duration="1000">
+                  <h5 class="mb-4">Payment Method</h5>
+                  <div>
+                    <div class="d-flex flex-column gap-3 py-3 border-bottom border-secondary border-opacity-50">
+                      <div class="summary-radio active d-flex align-items-center justify-content-between p-2">
+                        <div class="form-check">
+                          <input class="form-check-input  me-2" type="radio" name="exampleRadios" id="cardCredit" value="cardCredit" checked>
+                          <label class="form-check-label black" for="cardCredit">
+                            Pay by Card Credit
+                          </label>
+                        </div>
+                        <span><i class="uil uil-money-bill fs-5"></i></span>
+                      </div>
+                      <div class="summary-radio d-flex align-items-center justify-content-between p-2">
+                        <div class="form-check">
+                          <input class="form-check-input me-2" type="radio" name="exampleRadios" id="paypal" value="paypal">
+                          <label class="form-check-label black" for="paypal">
+                            Paypal
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <form class="row g-3 pt-3">
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Card Number</label>
+                      <input type="number" class="form-control border-secondary border-opacity-50" placeholder="1234 1234 1234">
+                    </div>
+                    <div class="col-md-6 col-6">
+                      <label class="form-label gray small fw-bold text-uppercase">Expiration date</label>
+                      <input type="date" class="form-control border-secondary border-opacity-50 gray" placeholder="MM/YY">
+                    </div>
+                    <div class="col-md-6 col-6">
+                      <label class="form-label gray small fw-bold text-uppercase">CVC</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" placeholder="CVC code">
+                    </div>
+                  </form>
+                </div>
+                <div class="d-lg-block d-none">
+                  <button class="btn btn-dark my-3 w-100 order-complete-btn">
+                    <a href="complete.html" class="text-light">Place Order</a>
+                  </button>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-3" data-aos="fade-left" data-aos-duration="1000">
+                <div class="card border-secondary border-2 border-opacity-50 p-4 ">
+                  <h5 class="mb-4">Order summary</h5>
+                  <div class="order-items border-bottom border-secondary border-opacity-25 mb-4">
+                    <div class="d-flex align-items-center border-bottom border-secondary border-opacity-25 py-4">
+                      <div class="cart-image me-2">
+                        <img src="assets/imgs/cart1.png" alt="Black Tray Table">
+                      </div>
+                      <div class="flex-grow-1 ms-2">
+                        <h6 class="mb-0 small">Tray Table</h6>
+                        <small class="gray">Color: Black</small>
+                        <div class="quantity-counter d-flex align-items-center gap-1 mt-3 ">
+                          <button class="btn" id="minus-btn"><i class="uil uil-minus"></i></button>
+                          <span class="number gray" id="qty-number">1</span>
+                          <button class="btn" id="plus-btn"><i class="uil uil-plus"></i></button>
+                        </div>
+                      </div>
+                      <span class="fw-bold small">$38.00</span>
+                    </div>
+                    <div class="d-flex align-items-center border-bottom border-secondary border-opacity-25 py-4">
+                        <div class="cart-image me-2">
+                          <img src="assets/imgs/cart2.png" alt="Red Tray Table">
+                        </div>
+                        <div class="flex-grow-1 ms-2">
+                          <h6 class="mb-0 small">Tray Table</h6>
+                          <small class="gray">Color: Red</small>
+                          <div class="quantity-counter d-flex align-items-center gap-1 mt-3">
+                            <button class="btn" id="minus-btn"><i class="uil uil-minus"></i></button>
+                            <span class="number gray" id="qty-number">1</span>
+                            <button class="btn" id="plus-btn"><i class="uil uil-plus"></i></button>
+                          </div>
+                        </div>
+                        <span class="fw-bold small">$38.00</span>
+                    </div>
+                    <div class="d-flex align-items-center py-4">
+                      <div class="cart-image me-2">
+                        <img src="assets/imgs/cart3.png" alt="Table lamp">
+                      </div>
+                      <div class="flex-grow-1 ms-2">
+                        <h6 class="mb-0 small">Table lamp</h6>
+                        <small class="gray">Color: gold</small>
+                        <div class="quantity-counter d-flex align-items-center gap-1 mt-3">
+                          <button class="btn" id="minus-btn"><i class="uil uil-minus"></i></button>
+                          <span class="number gray" id="qty-number">1</span>
+                          <button class="btn" id="plus-btn"><i class="uil uil-plus"></i></button>
+                        </div>
+                      </div>
+                      <span class="fw-bold small">$39.00</span>
+                    </div>
+                  </div>
+                  <form class="row">
+                    <div class="col-md-9 col-9">
+                      <input type="text" class="form-control p-2" placeholder="Input">
+                    </div>
+                    <div class="col-md-3 col-3">
+                      <button class="btn btn-dark">Apply</button>
+                    </div>
+                  </form>
+                  <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-25">
+                    <span class="black"><i class="uil uil-ticket fs-5"></i> JenkateMW</span>
+                    <span class="green fw-bold">-$25.00 [Remove]</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-25">
+                    <span class="black">Shipping</span>
+                    <span class="fw-semibold black">Free</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-25">
+                    <span class="black">Subtotal</span>
+                    <span class="fw-semibold black">$99.00</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center py-4">
+                    <span class="fw-bold black">Total</span>
+                    <span class="fw-bold black">$234.00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="d-lg-none d-block">
+                <button class="btn btn-dark my-3 w-100 order-complete-btn">
+                  <a href="complete.html" class="text-light">Place Order</a>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade card-complete mb-3" id="step3" role="tabpanel">
+            <div class="row">
+              <div class="col-lg-8 offset-lg-2" data-aos="fade-up" data-aos-duration="1000">
+                <div class="card border shadow p-5 mx-auto align-items-start align-items-lg-center text-start" >
+                  <h4 class="gray fw-semibold">Thank you! 🎉</h4>
+                  <h1 class="mb-4">Your order has been received</h1>
+                  <div class="d-flex justify-content-center gap-lg-5 gap-3 mb-5">
+                    <div class="position-relative">
+                      <div class="cart-image me-2">
+                        <img src="assets/imgs/cart1.png" alt="Black Tray Table">
+                      </div>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-dark">2</span>
+                    </div>
+                    <div class="position-relative">
+                      <div class="cart-image me-2">
+                        <img src="assets/imgs/cart2.png" alt="Red Tray Table">
+                      </div>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-dark">2</span>
+                    </div>
+                    <div class="position-relative">
+                      <div class="cart-image me-2">
+                        <img src="assets/imgs/cart3.png" alt="Table lamp">
+                      </div>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-dark">2</span>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center gap-4">
+                    <ul class="d-lg-flex flex-column align-items-start d-none">
+                      <li class="fw-semibold gray">Order code:</li>
+                      <li class="fw-semibold gray">Date:</li>
+                      <li class="fw-semibold gray">Total:</li>
+                      <li class="fw-semibold gray">Payment method:</li>
+                    </ul>
+                    <ul class="details d-flex flex-column align-items-start">
+                      <li class="fw-semibold black" data-title="Order code:">#0123_45678</li>
+                      <li class="fw-semibold black" data-title="Date:">October 19, 2023</li>
+                      <li class="fw-semibold black" data-title="Total:">$1,345.00</li>
+                      <li class="fw-semibold black" data-title="Payment method:">Credit Card</li>
+                    </ul>
+                  </div>
+                  <div class="mt-4">
+                    <button class="btn btn-dark rounded-pill py-3">Purchase history</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="footer-foot py-5">
+      <div class="container">
+        <div class="row justify-content-between border-bottom border-secondary border-opacity-50 pb-5">
+          <div class="col-lg-4">
+            <ul class="footer-info d-flex flex-column flex-md-row">
+              <li class="custom-border pe-md-2 pb-2 pb-md-0">
+                <a class="fw-bold text-light" href="#">3legant<span class="gray">.</span></a>
+              </li>
+              <li class="ps-2 text-light mb-2">Gift & Decoration Store</li>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            <ul class="footer-nav d-flex flex-column flex-md-row justify-content-end align-items-center">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="product.html">Product</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-start pt-2">
+          <div class="col-lg-8 order-2 order-lg-1">
+            <div class="footer-foot d-flex ">
+              <p class="copy pt-2 order-2 order-lg-1 pe-lg-4">Copyright © 2023 3legant. All rights reserved</p>
+              <ul class="footer-link-info  d-flex flex-wrap justify-content-start align-items-center align-items-lg-start gap-4 order-1 order-lg-2 pt-1">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 order-1 order-lg-2">
+            <div class="footer-foot">
+              <ul class="footer-link-icon d-flex justify-content-end align-items-center ">
+                <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <script>
+    let summaries = document.querySelectorAll('.summary-radio');
+      summaries.forEach(item => {
+          item.addEventListener('click', function() {
+              summaries.forEach(el => el.classList.remove('active'));
+              this.classList.add('active');
+              this.querySelector('input').checked = true;
+      });
+    });
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      disable: function() {
+      var maxWidth = 768;
+      return window.innerWidth < maxWidth;
+    }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="assets/JS/main.js"></script>
+</body>
+</html>

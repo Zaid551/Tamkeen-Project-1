@@ -1,0 +1,8 @@
+body{
+font-family: 'Cairo', sans-serif;
+}
+.banner .text-banner2,
+.banner .text-banner3{
+  inset-block-end:30px;
+  inset-inline-start: 350px;
+}

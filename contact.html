@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/solid.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/CSS/style.css">
+  <link rel="stylesheet" href="assets/CSS/dark.css">
+  <title>Contact page</title>
+</head>
+<body>
+  <header class="position-relative">
+    <div class="container-fluid top-link pt-1" id="notification">
+      <div class="row flex-nowrap align-items-center g-1">
+        <div class="col-11 text-center">
+          <p class="mb-0 gray"><i class="uil uil-ticket fs-5"></i> 30% off storewide — Limited time!  <a href="#" class="blue border-bottom border-primary">Shop Now <i class="uil uil-arrow-right"></i></a></p>
+        </div>
+        <div class="col-1 text-end">
+          <i class="uil uil-times gray fs-3" id="deleteNotification"></i>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <button class="navbar-toggler bg-transparent border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="uil uil-bars black">
+            <a class="navbar-brand" href="#"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+          </span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="logo d-lg-block d-none fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body position-relative">
+            <ul class="navbar-nav justify-content-lg-end justify-content-center align-items-lg-center align-items-start flex-grow-1 pt-5 pt-lg-0 gap-4">
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="shop.html">Shop <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="product.html">Product <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+              </li>
+              <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Shop
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="#">Living Room</a></li>
+                  <li><a class="dropdown-item black" href="product.html">Product</a></li>                </ul>
+              </li>
+              <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Product
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="blog.html">Blog</a></li>
+                  <li><a class="dropdown-item black" href="blog_post.html">Blog Post</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav  justify-content-lg-end justify-content-end align-items-lg-center flex-grow-1 pe-3">
+              <li class="nav-item">
+                <form class="position-relative" id="seachForm">
+                  <input type="text"
+                        class="form-control rounded-2 border-1 border-secondary search-bar ps-5"
+                        placeholder="Search..."
+                        aria-label="Search">
+                  <button class="btn position-absolute top-50 start-0 translate-middle-y shadow-none" type="button" id="showSearchBar">
+                      <i class="uil uil-search fs-3"></i>
+                  </button>
+                </form>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <a class="nav-link" href="account.html"><i class="uil uil-user-circle fs-3"></i></a>
+              </li>
+              <li class="nav-item ">
+                <button class="btn" id="darkMode">
+                  <i class="uil uil-moon fs-3"></i>
+                </button>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <button class="cart-btn btn position-relative " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                  <i class="uil uil-shopping-bag fs-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+                </button>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Cart</span> 
+                  <i class="uil uil-shopping-bag fs-3 position-absolute end-0 pe-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">0</span>
+                </a>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Wishlist</span> 
+                  <i class="uil uil-heart fs-3 position-absolute end-0 pe-3"></i>
+                  <span id="wishlist-count" class="position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">2</span>
+                </a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <button class="btn btn-dark w-100 mt-3">
+                  <a href="authentication.html"class="text-light">Sign in</a>
+                </button>
+              </li>
+              <li class="nav-item d-lg-none">
+                <ul class="footer-link-icon d-flex justify-content-start align-items-center text-dark mt-2">
+                  <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5 text-dark"></i></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="cart-btn btn position-relative d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <i class="uil uil-shopping-bag fs-3"></i>
+          <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+        </button>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasNavbarLabel2">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel2"><span class="fw-bold pt-2">Cart</span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body position-relative">
+        <div class="cart-list">
+
+        </div>
+        <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="gray">Subtotal</span>
+            <span class="black subtotal-price">$0.00</span> 
+          </li>
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="black fs-3">Total</span> 
+            <span class="black total-all-price">$0.00</span>
+        </li>
+          <li class="nav-item">
+            <button class="go-cart btn btn-dark w-100 my-3">
+              <a href="cart.html"class="black">Checkout</a>
+            </button>
+          </li>
+          <li class="nav-item text-center">
+            <a href="cart.html" class="black fw-bold border-bottom border-dark">View Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item small"><a href="index.html" class="gray">Home</a></li>
+                <li class="breadcrumb-item black small" aria-current="page">Contact Us</li>
+              </ol>
+            </nav>
+            <h1>We believe in sustainable decor. We’re passionate about life at home.</h1>
+            <p class="gray">Our features timeless furniture, with natural fabrics, curved lines, plenty of mirrors and classic design, which can be incorporated into any decor project. The pieces enchant for their sobriety, to last for generations, faithful to the shapes of each period, with a touch of the present</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sale my-3">
+      <div class="container">
+        <div class="row align-items-center gap-5">
+          <div class="col-lg-6">
+            <img src="assets/imgs/sale.png" alt="sale image">
+          </div>
+          <div class="col-lg-4 text-start mb-4">
+            <h2 class="my-3">About Us</h2>
+            <p class="gray">3legant is a gift & decorations store based in HCMC, Vietnam. Est since 2019.<br/> 
+              Our customer service is always prepared to support you 24/7</p>
+            <a href="#" class="black border-bottom border-dark">Shop Now <i class="uil uil-arrow-right fs-5"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact-us my-3">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Contact Us</h2>
+          <div class="col-lg-4 col-md-6 mt-2">
+            <div class="card border-0 p-4 h-100">
+              <i class="uil uil-home fs-1"></i>
+              <h5 class="gray">Address</h5>
+              <p class="fw-bold black">234 Hai Trieu, Ho Chi Minh City, Viet Nam</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-2">
+            <div class="card border-0 p-4 h-100">
+              <i class="uil uil-phone fs-1"></i>
+              <h5 class="gray">Contact Us</h5>
+              <p class="fw-bold black">+84 234 567 890</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-2">
+            <div class="card border-0 p-4 h-100">
+              <i class="uil uil-envelope fs-1"></i>
+              <h5 class="gray">Email</h5>
+              <p class="fw-bold black">hello@3legant.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-lg-6">
+            <form class="row g-3 needs-validation">
+              <div class="col-md-12">
+                <label for="validatinCustom01" class="form-label">Full Name</label>
+                <input type="text" class=" form-control py-2 px-2" id="validatinCustom01" placeholder="Your name" required>
+              </div>
+              <div class="col-md-12">
+                <label for="validationCustom02" class="form-label">Email address</label>
+                <input type="email" class="form-control py-2 px-2" placeholder="Your Email" id="validationCustom02" aria-describedby="inputGroupPrepend" required>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your Message" rows="3"></textarea>
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-dark w-100" type="submit">Send Message</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div id="map" class="shadow-sm">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="contact py-5 position-relative overflow-hidden">
+      <div class="container">
+          <div class="row g-3">
+            <div class="col-6 col-lg-3">
+              <div class="card bg-transparent border-0 p-4 h-100">
+                <i class="uil uil-truck fs-1"></i>
+                <h5>Free Shipping</h5>
+                <p class="gray">Order above $200</p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="card bg-transparent border-0 p-4 h-100">
+                <i class="uil uil-money-bill fs-1"></i>
+                <h5>Money-back</h5>
+                <p class="gray">30 days guarantee</p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="card bg-transparent border-0 p-4 h-100">
+                <i class="uil uil-lock-alt fs-1"></i>
+                <h5>Secure Payments</h5>
+                <p class="gray">Secured by Stripe</p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="card bg-transparent border-0 p-4 h-100">
+                <i class="uil uil-phone fs-1"></i>
+                <h5>24/7 Support</h5>
+                <p class="gray">Phone and Email support</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+    <section class="footer-foot py-5">
+      <div class="container">
+        <div class="row justify-content-between border-bottom border-secondary border-opacity-50 pb-5">
+          <div class="col-lg-4">
+            <ul class="footer-info d-flex flex-column flex-md-row">
+              <li class="custom-border pe-md-2 pb-2 pb-md-0">
+                <a class="fw-bold text-light" href="#">3legant<span class="gray">.</span></a>
+              </li>
+              <li class="ps-2 text-light mb-2">Gift & Decoration Store</li>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            <ul class="footer-nav d-flex flex-column flex-md-row justify-content-end align-items-center">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="product.html">Product</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>          
+          </div>
+        </div>
+        <div class="row d-flex justify-content-start pt-2">
+          <div class="col-lg-8 order-2 order-lg-1">
+            <div class="footer-foot d-flex ">
+              <p class="copy pt-2 order-2 order-lg-1 pe-lg-4">Copyright © 2023 3legant. All rights reserved</p>
+              <ul class="footer-link-info  d-flex flex-wrap justify-content-start align-items-center align-items-lg-start gap-4 order-1 order-lg-2 pt-1">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 order-1 order-lg-2">
+            <div class="footer-foot">
+              <ul class="footer-link-icon d-flex justify-content-end align-items-center ">
+                <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      disable: function() {
+      var maxWidth = 768;
+      return window.innerWidth < maxWidth;
+    }
+    });
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    const lat = 10.7717; 
+    const lng = 106.7044;
+    const map = L.map('map').setView([lat, lng], 17);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    L.marker([lat, lng]).addTo(map)
+        .bindPopup('<b>234 Hai Trieu</b><br>Ho Chi Minh City, Viet Nam')
+        .openPopup();
+  </script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="assets/JS/main.js"></script>
+</body>
+</html>

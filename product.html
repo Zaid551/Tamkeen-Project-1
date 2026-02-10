@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/solid.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+  <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"/>  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/CSS/style.css">
+  <link rel="stylesheet" href="assets/CSS/dark.css">
+  <title>Product page</title>
+</head>
+<body>
+  <header class="position-relative border-bottom border-secondary border-opacity-25">
+    <div class="container-fluid top-link pt-1" id="notification">
+      <div class="row flex-nowrap align-items-center g-1">
+        <div class="col-11 text-center">
+          <p class="mb-0 gray"><i class="uil uil-ticket fs-5"></i> 30% off storewide — Limited time!  <a href="#" class="blue border-bottom border-primary">Shop Now <i class="uil uil-arrow-right"></i></a></p>
+        </div>
+        <div class="col-1 text-end">
+          <i class="uil uil-times gray fs-3" id="deleteNotification"></i>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <button class="navbar-toggler bg-transparent border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="uil uil-bars black">
+            <a class="navbar-brand" href="#"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+          </span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="logo d-lg-block d-none fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body position-relative">
+            <ul class="navbar-nav justify-content-lg-end justify-content-center align-items-lg-center align-items-start flex-grow-1 pt-5 pt-lg-0 gap-4">
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="shop.html">Shop <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link active" aria-current="page" href="#">Product <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+                            <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Shop
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="#">Living Room</a></li>
+                  <li><a class="dropdown-item black" href="product.html">Product</a></li>                </ul>
+              </li>
+              <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Product
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="blog.html">Blog</a></li>
+                  <li><a class="dropdown-item black" href="blog_post.html">Blog Post</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav  justify-content-lg-end justify-content-end align-items-lg-center flex-grow-1 pe-3">
+              <li class="nav-item">
+                <form class="position-relative" id="seachForm">
+                  <input type="text"
+                        class="form-control rounded-2 border-1 border-secondary search-bar ps-5"
+                        placeholder="Search..."
+                        aria-label="Search">
+                  <button class="btn position-absolute top-50 start-0 translate-middle-y shadow-none" type="button" id="showSearchBar">
+                      <i class="uil uil-search fs-3"></i>
+                  </button>
+                </form>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <a class="nav-link" href="account.html"><i class="uil uil-user-circle fs-3"></i></a>
+              </li>
+              <li class="nav-item ">
+                <button class="btn" id="darkMode">
+                  <i class="uil uil-moon fs-3"></i>
+                </button>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <button class="cart-btn btn position-relative " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                  <i class="uil uil-shopping-bag fs-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+                </button>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Cart</span> 
+                  <i class="uil uil-shopping-bag fs-3 position-absolute end-0 pe-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">0</span>
+                </a>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Wishlist</span> 
+                  <i class="uil uil-heart fs-3 position-absolute end-0 pe-3"></i>
+                  <span id="wishlist-count" class="position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">0</span>
+                </a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <button class="btn btn-dark w-100 mt-3">
+                  <a href="authentication.html"class="text-light">Sign in</a>
+                </button>
+              </li>
+              <li class="nav-item d-lg-none">
+                <ul class="footer-link-icon d-flex justify-content-start align-items-center text-dark mt-2">
+                  <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5 text-dark"></i></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="cart-btn btn position-relative d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <i class="uil uil-shopping-bag fs-3"></i>
+          <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+        </button>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasNavbarLabel2">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel2"><span class="fw-bold pt-2">Cart</span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body position-relative">
+        <div class="cart-list">
+
+        </div>
+        <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="gray">Subtotal</span>
+            <span class="black subtotal-price">$0.00</span> 
+          </li>
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="black fs-3">Total</span> 
+            <span class="black total-all-price">$0.00</span>
+        </li>
+          <li class="nav-item">
+            <button class="go-cart btn btn-dark w-100 my-3">
+              <a href="cart.html"class="black">Checkout</a>
+            </button>
+          </li>
+          <li class="nav-item text-center">
+            <a href="cart.html" class="black fw-bold border-bottom border-dark">View Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="product">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mt-2">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html" class="gray">Home</a></li>
+                <li class="breadcrumb-item gray"><a href="shop.html" class="gray">Shop</a></li>
+                <li class="breadcrumb-item gray"><a href="#" class="gray">Living Room</a></li>
+                <li class="breadcrumb-item black" aria-current="page">Product</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-lg-6" data-aos="fade-right" data-aos-duration="2000">
+            <div class="swiper swiperProduct">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide ">
+                  <div class="card-head d-flex flex-column align-items-center">
+                    <div class="arrival_images d-flex flex-column align-items-center">
+                      <a href="assets/imgs/product1.png" data-fancybox="product-gallery" data-caption="Tray Table">
+                        <img src="assets/imgs/product1.png" class="img-fluid" alt="Tray Table">
+                      </a>
+                    </div>
+                    <div class="d-flex flex-column gap-2 tips">
+                      <span class="badge badge-light">New</span>
+                      <span class="badge badge-success">-50%</span>   
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide ">
+                  <div class="card-head d-flex flex-column align-items-center">
+                    <div class="arrival_images d-flex flex-column align-items-center">
+                      <a href="assets/imgs/product2.png" data-fancybox="product-gallery" data-caption="product2">
+                        <img src="assets/imgs/product2.png" class="img-fluid" alt="product2">
+                      </a>
+                    </div>
+                    <div class="d-flex flex-column gap-2 tips">
+                      <span class="badge badge-light">New</span>
+                      <span class="badge badge-success">-50%</span>   
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide ">
+                  <div class="card-head d-flex flex-column align-items-center">
+                    <div class="arrival_images d-flex flex-column align-items-center">
+                      <a href="assets/imgs/product3.png" data-fancybox="product-gallery" data-caption="product3">
+                        <img src="assets/imgs/product3.png" class="img-fluid" alt="product3">
+                      </a>
+                    </div>
+                    <div class="d-flex flex-column gap-2 tips">
+                      <span class="badge badge-light">New</span>
+                      <span class="badge badge-success">-50%</span>   
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide ">
+                  <div class="card-head d-flex flex-column align-items-center">
+                    <div class="arrival_images d-flex flex-column align-items-center">
+                      <a href="assets/imgs/product4.png" data-fancybox="product-gallery" data-caption="product4">
+                        <img src="assets/imgs/product4.png" class="img-fluid" alt="product4">
+                      </a>
+                    </div>
+                    <div class="d-flex flex-column gap-2 tips">
+                      <span class="badge badge-light">New</span>
+                      <span class="badge badge-success">-50%</span>   
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide ">
+                  <div class="card-head d-flex flex-column align-items-center">
+                    <div class="arrival_images d-flex flex-column align-items-center">
+                      <a href="assets/imgs/product5.png" data-fancybox="product-gallery" data-caption="product5">
+                        <img src="assets/imgs/product5.png" class="img-fluid" alt="product5">
+                      </a>
+                    </div>
+                    <div class="d-flex flex-column gap-2 tips">
+                      <span class="badge badge-light">New</span>
+                      <span class="badge badge-success">-50%</span>   
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide ">
+                  <div class="card-head d-flex flex-column align-items-center">
+                    <div class="arrival_images d-flex flex-column align-items-center">
+                      <a href="assets/imgs/product6.png" data-fancybox="product-gallery" data-caption="product6">
+                        <img src="assets/imgs/product6.png" class="img-fluid" alt="product6">
+                      </a>
+                    </div>
+                    <div class="d-flex flex-column gap-2 tips">
+                      <span class="badge badge-light">New</span>
+                      <span class="badge badge-success">-50%</span>   
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-button-prev shadow"><i class="uil uil-arrow-left"></i></div>
+              <div class="swiper-button-next shadow"><i class="uil uil-arrow-right"></i></div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left" data-aos-duration="2000">
+            <div class="top-info border-bottom border-secondary border-opacity-25">
+              <div class="d-flex justify-content-start mt-3 mt-lg-0">
+                <ul class="d-flex pe-3 black">
+                  <li class="uis uis-star"></li>
+                  <li class="uis uis-star"></li>
+                  <li class="uis uis-star"></li>
+                  <li class="uis uis-star"></li>
+                  <li class="uis uis-star"></li>
+                </ul>
+                <span class="black">11 Reviews</span>
+              </div>
+              <h1 class="my-3">Tray Table</h1>
+              <p class="gray small">Buy one or buy a few and make every space where you sit more<br class="d-none d-lg-block"/> convenient. Light and easy to move around with removable tray<br class="d-none d-lg-block"/> top, handy for serving snacks.</p>
+              <h3>$199.00 <span class="text-decoration-line-through gray fs-5 ps-2">$400.00</span></h3>
+            </div>
+            <div class="countdown d-lg-none py-4">
+              <p class="gray mb-2">Offer expires in:</p>
+              <div class="d-flex gap-3 text-center">
+                <div class="time-box p-3 bg-light rounded shadow-sm">
+                  <h2 class="fw-bold mb-0 text-dark" id="days">02</h2>
+                  <small class="text-secondary">Days</small>
+                </div>
+                <div class="time-box p-3 bg-light rounded shadow-sm">
+                  <h2 class="fw-bold mb-0 text-dark" id="hours">12</h2>
+                  <small class="text-secondary">Hours</small>
+                </div>
+                <div class="time-box p-3 bg-light rounded shadow-sm">
+                  <h2 class="fw-bold mb-0 text-dark" id="minutes">45</h2>
+                  <small class="text-secondary">Minutes</small>
+                </div>
+                <div class="time-box p-3 bg-light rounded shadow-sm">
+                  <h2 class="fw-bold mb-0 text-dark" id="seconds">05</h2>
+                  <small class="text-secondary">Seconds</small>
+                </div>
+              </div>
+            </div>
+            <div class="middle-info mt-3">
+              <div class="d-flex flex-column">
+                <h6 class="gray">Measurements</h6>
+                <span class="fs-4 black">17 1/2x20 5/8</span>
+              </div>
+              <div class="d-flex flex-column mt-2">
+                <h6 class="gray d-flex align-items-center">Choose Color <i class="uil uil-angle-right fs-2"></i></h6>
+                <div class="color-table black">
+                  <span id="black" class="color-text fs-4 active">Black</span>
+                  <span id="brown" class="color-text fs-4" style="display:none">Brown</span>
+                  <span id="red" class="color-text fs-4" style="display:none">Red</span>
+                  <span id="white" class="color-text fs-4" style="display:none">White</span>
+                </div>
+                <div class="button-menu d-flex gap-2">
+                  <button class="btn active" data-target="black"><img src="assets/imgs/table1.png" alt="table1"></button>
+                  <button class="btn" data-target="brown"><img src="assets/imgs/table2.png" alt="table2"></button>
+                  <button class="btn" data-target="red"><img src="assets/imgs/table3.png" alt="table3"></button>
+                  <button class="btn" data-target="white"><img src="assets/imgs/table4.png" alt="table4"></button>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  <div class="light-color rounded-2 d-flex align-items-center gap-2 mt-3">
+                    <button class="btn" id="minus-btn"><i class="uil uil-minus"></i></button>
+                    <span class="number gray" id="qty-number">1</span>
+                    <button class="btn" id="plus-btn"><i class="uil uil-plus"></i></button>
+                  </div>
+                  <button id="wishList-btn" class="btn btn-outline-dark mt-3 w-50">
+                    <i class="uil uil-heart" id="heartColor"></i>
+                    Wishlist
+                  </button>
+                  <button class="add-to-cart-btn btn btn-dark border border-dark mt-3 w-75">
+                    Add to cart
+                  </button>
+                </div>
+                <div class="d-flex gap-lg-5 gap-4 my-3">
+                  <ul>
+                    <li class="gray">SKU</li>
+                    <li class="gray">CATEGORY</li>
+                  </ul>
+                  <ul>
+                    <li class="black">1117</li>
+                    <li class="black">Living Room, Bedroom</li>
+                  </ul>
+                </div>
+                <div class="accordion mb-4" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header border-bottom border-dark">
+                      <button class="accordion-button fw-semibold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Additional Info
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <h6 class="gray fw-semibold">Details</h6>
+                        <p>You can use the removable tray for serving. The design makes it easy to put the tray back after use since you place it directly on the table frame without having to fit it into any holes.</p>
+                        <h6 class="gray fw-semibold">Packaging</h6>
+                        <ul>
+                          <li>Width: 20 " Height: 1 ½ " Length: 21 ½ "</li>
+                          <li>Weight: 7 lb 8 oz</li>
+                          <li>Package(s): 1</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header border-bottom border-dark">
+                      <button class="accordion-button collapsed fw-semibold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Questions
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header border-bottom border-dark">
+                      <button class="accordion-button collapsed fw-semibold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Reviews (11)
+                      </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="arrival">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="d-flex justify-content-between">
+              <h2>You might also like</h2>
+              <a href="#" class="black border-bottom border-dark d-flex align-items-end mb-2">More Products <i class="uil uil-arrow-right fs-5"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12" data-aos="fade-down-left" data-aos-duration="2000">
+            <div class="swiper mySwiper2">
+              <div class="swiper-wrapper listProduct">
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-6 col-lg-3">
+            <div class="card border-0 p-4 h-100">
+              <i class="uil uil-truck fs-1"></i>
+              <h5>Free Shipping</h5>
+              <p class="gray">Order above $200</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="card border-0 p-4 h-100">
+              <i class="uil uil-money-bill fs-1"></i>
+              <h5>Money-back</h5>
+              <p class="gray">30 days guarantee</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="card border-0 p-4 h-100">
+              <i class="uil uil-lock-alt fs-1"></i>
+              <h5>Secure Payments</h5>
+              <p class="gray">Secured by Stripe</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="card border-0 p-4 h-100">
+              <i class="uil uil-phone fs-1"></i>
+              <h5>24/7 Support</h5>
+              <p class="gray">Phone and Email support</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="contact py-5 position-relative overflow-hidden">
+      <img src="assets/imgs/banner2.png" class="contact-img img-left" alt="banner2">
+      <div class="container">
+        <div class="row justify-content-between"> 
+          <div class="col-lg-12 text-center">
+            <h2>Join Our Newsletter</h2>
+            <p class="gray">Sign up for deals, new products and promotions</p>
+          </div>
+          <form class="row mt-4 align-items-center justify-content-center">
+            <div class="col-12 col-md-6">
+              <div class="input-group border-bottom border-secondary border-opacity-50 py-2 px-0">
+                <span class="input-group-text bg-transparent border-0">
+                  <i class="uil uil-envelope fs-5"></i>
+                </span>
+                <input type="text" class="form-control bg-transparent border-0" placeholder="Email address">
+                <button type="submit" class="btn gray">Signup</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <img src="assets/imgs/chair65284124.png"class="contact-img img-right" alt="banner1">
+    </section>
+    <section class="footer-foot py-5">
+      <div class="container">
+        <div class="row justify-content-between border-bottom border-secondary border-opacity-50 pb-5">
+          <div class="col-lg-4">
+            <ul class="footer-info d-flex flex-column flex-md-row">
+              <li class="custom-border pe-md-2 pb-2 pb-md-0">
+                <a class="fw-bold text-light" href="#">3legant<span class="gray">.</span></a>
+              </li>
+              <li class="ps-2 text-light mb-2">Gift & Decoration Store</li>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            <ul class="footer-nav d-flex flex-column flex-md-row justify-content-end align-items-center">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="product.html">Product</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-start pt-2">
+          <div class="col-lg-8 order-2 order-lg-1">
+            <div class="footer-foot d-flex ">
+              <p class="copy pt-2 order-2 order-lg-1 pe-lg-4">Copyright © 2023 3legant. All rights reserved</p>
+              <ul class="footer-link-info  d-flex flex-wrap justify-content-start align-items-center align-items-lg-start gap-4 order-1 order-lg-2 pt-1">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 order-1 order-lg-2">
+            <div class="footer-foot">
+              <ul class="footer-link-icon d-flex justify-content-end align-items-center ">
+                <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+  <script>
+    Fancybox.bind("[data-fancybox='gallery']", {});
+    Fancybox.bind('[data-fancybox="product-gallery"]', {
+      Hash: false,
+      Thumbs: {
+        autoStart: false,
+      }
+    });
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      disable: function() {
+      var maxWidth = 768;
+      return window.innerWidth < maxWidth;
+    }
+    });
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="assets/JS/main.js"></script>
+</body>
+</html>

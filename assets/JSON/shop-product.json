@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "title": "Loveseat Sofa",
+    "img" : "assets/imgs/arrival1.png",
+    "price": "$199.00",
+    "oldPrice": "$400.00"
+  },
+  {
+    "id": 2,
+    "title": "Luxury Sofa",
+    "img" : "assets/imgs/shop2.png",
+    "price": "$299.00",
+    "oldPrice": "$500.00"
+  },
+  {
+    "id": 3,
+    "title": "Table Lamp",
+    "img" : "assets/imgs/arrival3.png",
+    "price": "$19.00",
+    "oldPrice": ""
+  },
+  {
+    "id": 4,
+    "title": "White Drawer unit",
+    "img" : "assets/imgs/shop4.png",
+    "price": "$89.99",
+    "oldPrice": ""
+  },
+  {
+    "id": 5,
+    "title": "Black Tray Table",
+    "img" : "assets/imgs/product1.png",
+    "price": "$19.99",
+    "oldPrice": ""
+  },
+  {
+    "id": 6,
+    "title": "Lamp",
+    "img" : "assets/imgs/shop6.png",
+    "price": "$39.99",
+    "oldPrice": ""
+  },
+  {
+    "id": 7,
+    "title": "Light Beige Pillow",
+    "img" : "assets/imgs/shop7.png",
+    "price": "$3.99",
+    "oldPrice": ""
+  },
+  {
+    "id": 8,
+    "title": "Table Lamp",
+    "img" : "assets/imgs/arrival2.png",
+    "price": "$39.99",
+    "oldPrice": ""
+  },
+  {
+    "id": 9,
+    "title": "Bamboo basket",
+    "img" : "assets/imgs/arrival4.png",
+    "price": "$9.99",
+    "oldPrice": ""
+  }
+]

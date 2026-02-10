@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/solid.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/CSS/style.css">
+  <link rel="stylesheet" href="assets/CSS/dark.css">
+  <title>Account</title>
+</head>
+<body>
+  <header class="position-relative">
+    <div class="container-fluid top-link pt-1" id="notification">
+      <div class="row flex-nowrap align-items-center g-1">
+        <div class="col-11 text-center">
+          <p class="mb-0 gray"><i class="uil uil-ticket fs-5"></i> 30% off storewide — Limited time!  <a href="#" class="blue border-bottom border-primary">Shop Now <i class="uil uil-arrow-right"></i></a></p>
+        </div>
+        <div class="col-1 text-end">
+          <i class="uil uil-times gray fs-3" id="deleteNotification"></i>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <button class="navbar-toggler bg-transparent border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="uil uil-bars black">
+            <a class="navbar-brand" href="#"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+          </span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="logo d-lg-block d-none fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body position-relative">
+            <ul class="navbar-nav justify-content-lg-end justify-content-center align-items-lg-center align-items-start flex-grow-1 pt-5 pt-lg-0 gap-4">
+              <li class="nav-item is-border-down">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="shop.html">Shop <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="product.html">Product <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Shop
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="#">Living Room</a></li>
+                  <li><a class="dropdown-item black" href="product.html">Product</a></li>                </ul>
+              </li>
+              <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Product
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="blog.html">Blog</a></li>
+                  <li><a class="dropdown-item black" href="blog_post.html">Blog Post</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav  justify-content-lg-end justify-content-end align-items-lg-center flex-grow-1 pe-3">
+              <li class="nav-item">
+                <form class="position-relative" id="seachForm">
+                  <input type="text"
+                        class="form-control rounded-2 border-1 border-secondary search-bar ps-5"
+                        placeholder="Search..."
+                        aria-label="Search">
+                  <button class="btn position-absolute top-50 start-0 translate-middle-y shadow-none" type="button" id="showSearchBar">
+                      <i class="uil uil-search fs-3"></i>
+                  </button>
+                </form>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <a class="nav-link" href="#"><i class="uil uil-user-circle fs-3"></i></a>
+              </li>
+              <li class="nav-item ">
+                <button class="btn" id="darkMode">
+                  <i class="uil uil-moon fs-3"></i>
+                </button>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <button class="cart-btn btn position-relative " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                  <i class="uil uil-shopping-bag fs-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+                </button>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Cart</span> 
+                  <i class="uil uil-shopping-bag fs-3 position-absolute end-0 pe-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">0</span>
+                </a>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Wishlist</span> 
+                  <i class="uil uil-heart fs-3 position-absolute end-0 pe-3"></i>
+                  <span id="wishlist-count" class="position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">2</span>
+                </a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <button class="btn btn-dark w-100 mt-3">
+                  <a href="authentication.html"class="text-light">Sign in</a>
+                </button>
+              </li>
+              <li class="nav-item d-lg-none">
+                <ul class="footer-link-icon d-flex justify-content-start align-items-center text-dark mt-2">
+                  <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5 text-dark"></i></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="cart-btn btn position-relative d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <i class="uil uil-shopping-bag fs-3"></i>
+          <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+        </button>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasNavbarLabel2">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel2"><span class="fw-bold pt-2">Cart</span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body position-relative">
+        <div class="cart-list">
+
+        </div>
+        <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="gray">Subtotal</span>
+            <span class="black subtotal-price">$0.00</span> 
+          </li>
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="black fs-3">Total</span> 
+            <span class="black total-all-price">$0.00</span>
+        </li>
+          <li class="nav-item">
+            <button class="go-cart btn btn-dark w-100 my-3">
+              <a href="cart.html"class="black">Checkout</a>
+            </button>
+          </li>
+          <li class="nav-item text-center">
+            <a href="cart.html" class="black fw-bold border-bottom border-dark">View Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="mb-5 mb-lg-2" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+              <a href="index.html" class="gray d-lg-none d-block"><i class="uil uil-angle-left"></i> back</a>
+            </nav>
+            <h1 class="text-center">My Account</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="account">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-lg-3" data-aos="fade-right" data-aos-duration="1000">
+            <div class="account-card p-4">
+              <div class="d-flex flex-column align-items-center">
+                <div class="mb-2 position-relative">
+                  <img src="assets/imgs/user.png" alt="User Name">
+                  <span class="camera">
+                    <i class="uil uil-camera fs-5"></i>
+                  </span>
+                </div>
+                <h5 class="mb-4">Sofia Havertz</h5>
+              </div>
+              <select class="form-select d-lg-none border border-dark" id="tab-selector">
+                  <option value="#step1" selected>Account</option>
+                  <option value="#step2">Address</option>
+                  <option value="#step3">Orders</option>
+                  <option value="#step4">Wishlist</option>
+                  <option value="#logoutModal">Log Out</option>
+              </select>
+              <ul class="nav nav-pills custom-steps d-none d-lg-flex flex-column mb-5 justify-content-start align-items-start gap-3" id="cartTab" role="tablist">
+                <li class="nav-item">
+                  <button class="nav-link active" id="step1-tab" data-bs-toggle="pill" data-bs-target="#step1" type="button">
+                    Account
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link " id="step2-tab" data-bs-toggle="pill" data-bs-target="#step2" type="button">
+                    Address
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" id="step3-tab" data-bs-toggle="pill" data-bs-target="#step3" type="button">
+                    Orders
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" id="step4-tab" data-bs-toggle="pill" data-bs-target="#step4" type="button">
+                    Wishlist
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" id="step5-tab" data-bs-toggle="modal" data-bs-target="#logoutModal" type="button">
+                    Log Out
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-9 mt-4">
+            <div class="tab-content" id="accountTabContent">
+              <div class="tab-pane fade show active" id="step1" role="tabpanel" data-aos="fade-left" data-aos-duration="1000">
+                <div class="px-4 pb-3">
+                  <h4 class="fw-semibold mb-4">Account Details</h4>
+                  <form class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">First Name *</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" placeholder="First name">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Last name *</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" placeholder="Last name">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Display name *</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50 mb-2" placeholder="Display name">
+                      <i class="small gray">This will be how your name will be displayed in the account section and in reviews</i>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Email address</label>
+                      <input type="email" class="form-control border-secondary border-opacity-50" placeholder="Your Email">
+                    </div>
+                  </form>
+                </div>
+                <div class="px-4 pb-3" data-aos="fade-up" data-aos-duration="1000">
+                  <h4 class="fw-semibold mb-4">Password</h4>
+                  <form class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Old password</label>
+                      <input type="password" class="form-control border-secondary border-opacity-50" placeholder="Old password">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">new password</label>
+                      <input type="password" class="form-control border-secondary border-opacity-50" placeholder="New password">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label gray small fw-bold text-uppercase">Repeat new password</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50 mb-2" placeholder="Repeat new password">
+                    </div>
+                  </form>
+                </div>
+                <div class="px-4">
+                  <button class="btn btn-dark my-3 py-3 px-5">Save changes</button>
+                </div>
+              </div>
+              <div class="tab-pane fade " id="step2" role="tabpanel">
+                <div class="px-4 pb-3">
+                  <h4 class="fw-semibold mb-4">Address</h4>
+                  <div class="d-flex flex-lg-row flex-column justify-content-between">
+                    <div class="card border-dark border-opacity-50 p-4">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="black">Billing Address</h5>
+                        <span class="gray small"><i class="uil uil-edit-alt"></i>Edit</span>
+                      </div>
+                      <ul>
+                        <li class="black">Sofia Havertz</li>
+                        <li class="black">(+1) 234 567 890</li>
+                        <li class="black">345 Long Island, NewYork, United States</li>
+                      </ul>
+                    </div>
+                    <div class="card border-dark border-opacity-50 p-4 me-lg-5 mt-3 mt-lg-0">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="black">Shipping Address</h5>
+                        <span class="gray small"><i class="uil uil-edit-alt"></i>Edit</span>
+                      </div>
+                      <ul>
+                        <li class="black">Sofia Havertz</li>
+                        <li class="black">(+1) 234 567 890</li>
+                        <li class="black">345 Long Island, NewYork, United States</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade " id="step3" role="tabpanel">
+                <div class="px-4 pb-3">
+                  <h4 class="fw-semibold mb-4">Orders History</h4>
+                  <table class="custom-responsive-table table align-middle">
+                    <thead class="border-bottom border-secondary">
+                      <tr>
+                        <th class="gray">Number ID</th>
+                        <th class="gray">Dates</th>
+                        <th class="gray">Status</th>
+                        <th class="gray">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="black" data-label="Number ID">#3456_768</td>
+                        <td class="black" data-label="Dates">October 17, 2023</td>
+                        <td class="black" data-label="Status">Delivered</td>
+                        <td class="black" data-label="Price">$1234.00</td>
+                      </tr>
+                      <tr>
+                        <td class="black" data-label="Number ID">#3456_980</td>
+                        <td class="black" data-label="Dates">October 11, 2023</td>
+                        <td class="black" data-label="Status">Delivered</td>
+                        <td class="black" data-label="Price">$345.00</td>
+                      </tr>
+                      <tr>
+                        <td data-label="Number ID">#3456_120</td>
+                        <td data-label="Dates">August 24, 2023</td>
+                        <td data-label="Status">Delivered</td>
+                        <td data-label="Price">$2345.00</td>
+                      </tr>
+                      <tr>
+                        <td data-label="Number ID">#3456_030</td>
+                        <td data-label="Dates">August 12, 2023</td>
+                        <td data-label="Status">Delivered</td>
+                        <td data-label="Price">$845.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade " id="step4" role="tabpanel">
+                <div class="px-4 pb-3">
+                  <h4 class="fw-semibold mb-4">Your Wishlist</h4>
+                  <table class="custom-responsive-table1 table align-middle">
+                    <thead class="border-bottom border-secondary">
+                      <tr>
+                        <th class="gray">Product</th>
+                        <th class="gray">Price</th>
+                        <th class="gray">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="d-flex  align-items-center">
+                            <button class="btn btn-sm gray p-0"><i class="uil uil-times fs-3 gray"></i></button>
+                            <div class="cart-image-wishlist mx-3">
+                              <img src="assets/imgs/cart1.png" alt="Black Tray Table">
+                            </div>
+                            <div>
+                              <h6 class="mb-1">Tray Table</h6>
+                              <small class="gray d-block">Color: Black</small>
+                              <span class="d-lg-none d-block">$19.19</span>
+                            </div>
+                          </div>
+                          <div class="mt-3" style="width: 320px;">
+                            <button class="btn btn-dark px-4 w-100 d-lg-none d-block">Add to cart</button>
+                          </div>
+                        </td>
+                        <td class="price">$19.19</td>
+                        <td class="d-lg-block d-none">
+                          <button class="btn btn-dark px-4 my-5">Add to cart</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Product">
+                          <div class="d-flex align-items-center">
+                            <button class="btn btn-sm gray p-0"><i class="uil uil-times fs-3 gray"></i></button>
+                            <div class="cart-image-wishlist mx-3">
+                              <img src="assets/imgs/sofa.png" alt="Sofa">
+                            </div>
+                            <div>
+                              <h6 class="mb-1">Sofa</h6>
+                              <small class="gray d-block">Color: Beige</small>
+                              <span class="d-lg-none d-block">$345</span>
+                            </div>
+                          </div>
+                          <div class="mt-3" style="width: 320px;">
+                            <button class="btn btn-dark px-4  w-100 d-lg-none d-block">Add to cart</button>
+                          </div>
+                        </td>
+                        <td class="price">$345</td>
+                        <td class="d-lg-block d-none mt-1">
+                          <button class="btn btn-dark px-4 my-5">Add to cart</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Product">
+                          <div class="d-flex align-items-center">
+                            <button class="btn btn-sm gray p-0"><i class="uil uil-times fs-3 gray"></i></button>
+                            <div class="cart-image-wishlist mx-3">
+                              <img src="assets/imgs/arrival4.png" alt="Bamboo basket">
+                            </div>
+                            <div>
+                              <h6 class="mb-1">Bamboo basket</h6>
+                              <small class="gray d-block">Color: Beige</small>
+                              <span class="d-lg-none d-block">$8.80</span>
+                            </div>
+                          </div>
+                          <div class="mt-3" style="width: 320px;">
+                            <button class="btn btn-dark px-4 w-100 d-lg-none d-block">Add to cart</button>
+                          </div>
+                        </td>
+                        <td class="price">$8.80</td>
+                        <td class="d-lg-block d-none">
+                          <button class="btn btn-dark px-4 my-5">Add to cart</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <button class="btn btn-sm gray p-0"><i class="uil uil-times fs-3 gray"></i></button>
+                            <div class="cart-image-wishlist mx-3">
+                              <img src="assets/imgs/shop7.png" alt="Pillow">
+                            </div>
+                            <div>
+                              <h6 class="mb-1">Pillow</h6>
+                              <small class="gray d-block">Color: Beige</small>
+                              <span class="d-lg-none d-block">$8.80</span>
+                            </div>
+                          </div>
+                          <div class="mt-3" style="width: 320px;">
+                            <button class="btn btn-dark px-4 w-100 d-lg-none d-block">Add to cart</button>
+                          </div>
+                        </td>
+                        <td class="price">$8.80</td>
+                        <td class="d-lg-block d-none">
+                          <button class="btn btn-dark px-4 my-5">Add to cart</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+                <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Are you sure you want to log out?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <a href="index.html" class="btn btn-danger">Logout</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="footer-foot py-5">
+      <div class="container">
+        <div class="row justify-content-between border-bottom border-secondary border-opacity-50 pb-5">
+          <div class="col-lg-4">
+            <ul class="footer-info d-flex flex-column flex-md-row">
+              <li class="custom-border pe-md-2 pb-2 pb-md-0">
+                <a class="fw-bold text-light" href="#">3legant<span class="gray">.</span></a>
+              </li>
+              <li class="ps-2 text-light mb-2">Gift & Decoration Store</li>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            <ul class="footer-nav d-flex flex-column flex-md-row justify-content-end align-items-center">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="product.html">Product</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-start pt-2">
+          <div class="col-lg-8 order-2 order-lg-1">
+            <div class="footer-foot d-flex ">
+              <p class="copy pt-2 order-2 order-lg-1 pe-lg-4">Copyright © 2023 3legant. All rights reserved</p>
+              <ul class="footer-link-info  d-flex flex-wrap justify-content-start align-items-center align-items-lg-start gap-4 order-1 order-lg-2 pt-1">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 order-1 order-lg-2">
+            <div class="footer-foot">
+              <ul class="footer-link-icon d-flex justify-content-end align-items-center ">
+                <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const selector = document.getElementById('tab-selector');
+    selector.addEventListener('change', function (e) {
+        const targetId = e.target.value;
+                const tabTrigger = document.querySelector(`[data-bs-target="${targetId}"]`);
+        if (tabTrigger) {
+            const tabInstance = new bootstrap.Tab(tabTrigger);
+            tabInstance.show();
+        }
+    });
+    const allTabButtons = document.querySelectorAll('[data-bs-toggle="pill"]');
+    allTabButtons.forEach(button => {
+        button.addEventListener('shown.bs.tab', function (event) {
+            const targetId = event.target.getAttribute('data-bs-target');
+            selector.value = targetId; 
+        });
+    });
+});
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      disable: function() {
+      var maxWidth = 768;
+      return window.innerWidth < maxWidth;
+    }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="assets/JS/main.js"></script>
+</body>
+</html>

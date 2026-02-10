@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/solid.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  
+  <link rel="stylesheet" href="assets/CSS/style.css">
+  <link rel="stylesheet" href="assets/CSS/dark.css">
+  <title>Shop page</title>
+</head>
+<body>
+  <header class="position-relative">
+    <div class="container-fluid top-link pt-1" id="notification">
+      <div class="row flex-nowrap align-items-center g-1">
+        <div class="col-11 text-center">
+          <p class="mb-0 gray"><i class="uil uil-ticket fs-5"></i> 30% off storewide — Limited time!  <a href="#" class="blue border-bottom border-primary">Shop Now <i class="uil uil-arrow-right"></i></a></p>
+        </div>
+        <div class="col-1 text-end">
+          <i class="uil uil-times gray fs-3" id="deleteNotification"></i>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <button class="navbar-toggler bg-transparent border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="uil uil-bars black">
+            <a class="navbar-brand" href="#"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+          </span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="logo d-lg-block d-none fw-bold pt-2">3legant<span class="gray">.</span></span></a>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><span class="logo fw-bold pt-2">3legant<span class="gray">.</span></span></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body position-relative">
+            <ul class="navbar-nav justify-content-lg-end justify-content-center align-items-lg-center align-items-start flex-grow-1 pt-5 pt-lg-0 gap-4">
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link active" aria-current="page" href="#">Shop <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link"  href="product.html">Product <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
+              </li>
+              <li class="nav-item is-border-down">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Shop
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="#">Living Room</a></li>
+                  <li><a class="dropdown-item black" href="product.html">Product</a></li>                </ul>
+              </li>
+              <li class="nav-item is-border-down dropdown d-lg-none">
+                <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Product
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="blog.html">Blog</a></li>
+                  <li><a class="dropdown-item black" href="blog_post.html">Blog Post</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav  justify-content-lg-end justify-content-end align-items-lg-center flex-grow-1 pe-3">
+              <li class="nav-item">
+                <form class="position-relative" id="seachForm">
+                  <input type="text"
+                        class="form-control rounded-2 border-1 border-secondary search-bar ps-5"
+                        placeholder="Search..."
+                        aria-label="Search">
+                  <button class="btn position-absolute top-50 start-0 translate-middle-y shadow-none" type="button" id="showSearchBar">
+                      <i class="uil uil-search fs-3"></i>
+                  </button>
+                </form>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <a class="nav-link" href="account.html"><i class="uil uil-user-circle fs-3"></i></a>
+              </li>
+              <li class="nav-item ">
+                <button class="btn" id="darkMode">
+                  <i class="uil uil-moon fs-3"></i>
+                </button>
+              </li>
+              <li class="nav-item nav-item-user-icon">
+                <button class="cart-btn btn position-relative " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                  <i class="uil uil-shopping-bag fs-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+                </button>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Cart</span> 
+                  <i class="uil uil-shopping-bag fs-3 position-absolute end-0 pe-3"></i>
+                  <span class="cart-badge position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">0</span>
+                </a>
+              </li>
+              <li class="nav-item position-relative d-lg-none is-border-down">
+                <a class="nav-link" href="#">
+                  <span class="gray">Wishlist</span> 
+                  <i class="uil uil-heart fs-3 position-absolute end-0 pe-3"></i>
+                  <span id="wishlist-count" class="position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">2</span>
+                </a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <button class="btn btn-dark w-100 mt-3">
+                  <a href="authentication.html"class="text-light">Sign in</a>
+                </button>
+              </li>
+              <li class="nav-item d-lg-none">
+                <ul class="footer-link-icon d-flex justify-content-start align-items-center text-dark mt-2">
+                  <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3 text-dark"></i></a></li>
+                  <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5 text-dark"></i></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="cart-btn btn position-relative d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <i class="uil uil-shopping-bag fs-3"></i>
+          <span class="cart-badge position-absolute top-50 start-75 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 ms-3">0</span>
+        </button>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasNavbarLabel2">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel2"><span class="fw-bold pt-2">Cart</span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body position-relative">
+        <div class="cart-list">
+
+        </div>
+        <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="gray">Subtotal</span>
+            <span class="black subtotal-price">$0.00</span> 
+          </li>
+        <li class="nav-item d-flex align-items-center justify-content-between is-border-down py-2">
+            <span class="black fs-3">Total</span> 
+            <span class="black total-all-price">$0.00</span>
+        </li>
+          <li class="nav-item">
+            <button class="go-cart btn btn-dark w-100 my-3">
+              <a href="cart.html"class="black">Checkout</a>
+            </button>
+          </li>
+          <li class="nav-item text-center">
+            <a href="cart.html" class="black fw-bold border-bottom border-dark">View Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container shopHeader">
+        <div class="row">
+          <div class="col-lg-12 mt-2">
+            <div class="centerHero d-flex flex-column align-items-center mt-5">
+              <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item small"><a href="index.html" class="gray">Home</a></li>
+                  <li class="breadcrumb-item text-dark small" aria-current="page">Shop</li>
+                </ol>
+              </nav>
+              <h1 class="text-dark">Shop Page</h1>
+              <p>Let’s design the place you always imagined.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="shop">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 mt-4">
+            <div class="d-flex flex-column align-items-start d-none d-lg-block">
+              <div class="d-flex justify-content-start align-items-center">
+                <i class="bi bi-sliders fs-5 me-2"></i>
+                <h5 class="ms-1">Filter</h5>
+              </div>
+              <div id="list-example" class="list-group mt-3">
+                <h6>CATEGORIES</h6>
+                <a class="list-group-item list-group-item-action small" href="#list-item-1">All Rooms</a>
+                <a class="list-group-item list-group-item-action small active " href="#list-item-2"><span class="border-bottom border-dark border-2">Living Room</span></a>
+                <a class="list-group-item list-group-item-action small" href="#list-item-3">Bedroom</a>
+                <a class="list-group-item list-group-item-action small" href="#list-item-4">Kitchen</a>
+                <a class="list-group-item list-group-item-action small" href="#list-item-5">Bathroom</a>
+                <a class="list-group-item list-group-item-action small" href="#list-item-6">Dinning</a>
+                <a class="list-group-item list-group-item-action small" href="#list-item-7">Outdoor</a>
+              </div>
+              <div id="check-example" class="my-3">
+                <h6>PRICE</h6>
+                <ul class="d-flex flex-column gap-2">
+                  <li class="form-check-reverse d-flex justify-content-between"> 
+                      <label class="form-check-label gray small" for="check1">All Price</label>
+                      <input class="form-check-input border-dark" type="checkbox" value="" id="check1" >
+                  </li>
+                  <li class="form-check-reverse d-flex justify-content-between"> 
+                      <label class="form-check-label gray small" for="check2">$0.00 - 99.99</label>
+                      <input class="form-check-input bg-dark border-dark" type="checkbox" value="" id="check2" checked>
+                  </li>
+                  <li class="form-check-reverse d-flex justify-content-between"> 
+                      <label class="form-check-label gray small" for="check3">$100.00 - 199.99</label>
+                      <input class="form-check-input border-dark" type="checkbox" value="" id="check3" >
+                  </li>
+                  <li class="form-check-reverse d-flex justify-content-between"> 
+                      <label class="form-check-label gray small me-5" for="check4">$200.00 - 299.99</label>
+                      <input class="form-check-input border-dark" type="checkbox" value="" id="check4" >
+                  </li>
+                  <li class="form-check-reverse d-flex justify-content-between"> 
+                      <label class="form-check-label gray small" for="check5">$300.00 - 399.99</label>
+                      <input class="form-check-input border-dark" type="checkbox" value="" id="check5" >
+                  </li>
+                  <li class="form-check-reverse d-flex justify-content-between"> 
+                      <label class="form-check-label gray small" for="check6">$400.00+</label>
+                      <input class="form-check-input border-dark" type="checkbox" value="" id="check6" >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 mt-4">
+            <div class="filter-shop d-flex justify-content-between align-items-center w-100 w-md-auto mb-3 mb-md-0">
+              <div class="d-flex justify-content-start align-items-center d-lg-none">
+                <i class="bi bi-sliders fs-5 me-2"></i>
+                <h5 class="ms-1">Filter</h5>
+              </div>
+              <ul class="menu d-flex d-lg-none">
+                <li onclick="changeView('view-3')" id="view-3"><i class="bi bi-grid-3x3-gap-fill fs-5"></i></li>
+                <li onclick="changeView('view-1')" id="view-1"><i class="bi bi-view-stacked fs-5"></i></li>
+              </ul>
+            </div>
+            <div class="d-flex justify-content-between align-items-md-center mb-4">
+              <h5 class="mb-0 ">Living Room</h5>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="dropdown">
+                  <button class="btn btn-outline-dark border-0 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort by
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Ascending</a></li>
+                    <li><a class="dropdown-item" href="#">Descending</a></li>
+                  </ul>
+                </div>
+                <ul class="menu d-lg-flex d-none">
+                  <li class="menu-list active" onclick="changeView('view-3')" id="view-3"><i class="bi bi-grid-3x3-gap-fill fs-5"></i></li>
+                  <li class="menu-list" onclick="changeView('view-1')" id="view-1"><i class="bi bi-view-stacked fs-5"></i></li>
+                </ul>
+              </div>
+            </div>
+            <div class="shopMenu d-flex flex-wrap gap-3 view-3 mt-3"  data-aos="zoom-in-down" data-aos-duration="1000">
+
+            </div>
+            <div class="text-center my-5">
+              <button class="btn btn-outline-dark rounded-5">Show more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="contact py-5 position-relative overflow-hidden">
+      <img src="assets/imgs/banner2.png" class="contact-img img-left" alt="banner2">
+      <div class="container">
+        <div class="row justify-content-between"> 
+          <div class="col-lg-12 text-center">
+            <h2>Join Our Newsletter</h2>
+            <p class="gray">Sign up for deals, new products and promotions</p>
+          </div>
+          <form class="row mt-4 align-items-center justify-content-center">
+            <div class="col-12 col-md-6">
+              <div class="input-group border-bottom border-secondary border-opacity-50 py-2 px-0">
+                <span class="input-group-text bg-transparent border-0">
+                  <i class="uil uil-envelope fs-5"></i>
+                </span>
+                <input type="text" class="form-control bg-transparent border-0" placeholder="Email address">
+                <button type="submit" class="btn gray">Signup</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <img src="assets/imgs/chair65284124.png"class="contact-img img-right" alt="banner1">
+    </section>
+    <section class="footer-foot py-5">
+      <div class="container">
+        <div class="row justify-content-between border-bottom border-secondary border-opacity-50 pb-5">
+          <div class="col-lg-4">
+            <ul class="footer-info d-flex flex-column flex-md-row">
+              <li class="custom-border pe-md-2 pb-2 pb-md-0">
+                <a class="fw-bold text-light" href="#">3legant<span class="gray">.</span></a>
+              </li>
+              <li class="ps-2 text-light mb-2">Gift & Decoration Store</li>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            <ul class="footer-nav d-flex flex-column flex-md-row justify-content-end align-items-center">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="product.html">Product</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-start pt-2">
+          <div class="col-lg-8 order-2 order-lg-1">
+            <div class="footer-foot d-flex ">
+              <p class="copy pt-2 order-2 order-lg-1 pe-lg-4">Copyright © 2023 3legant. All rights reserved</p>
+              <ul class="footer-link-info  d-flex flex-wrap justify-content-start align-items-center align-items-lg-start gap-4 order-1 order-lg-2 pt-1">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 order-1 order-lg-2">
+            <div class="footer-foot">
+              <ul class="footer-link-icon d-flex justify-content-end align-items-center ">
+                <li><a href="http://instagram.com" target="_blank"><i class="uil uil-instagram fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-facebook-f fs-5 pe-3"></i></a></li>
+                <li><a href="http://facebook.com" target="_blank"><i class="uil uil-youtube fs-5"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      disable: function() {
+      var maxWidth = 768;
+      return window.innerWidth < maxWidth;
+    }
+    });
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="assets/JS/main.js"></script>
+</body>
+</html>
