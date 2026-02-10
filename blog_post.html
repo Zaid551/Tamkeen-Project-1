@@ -44,10 +44,10 @@
               <li class="nav-item is-border-down">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item is-border-down">
+              <li class="nav-item is-border-down d-none d-lg-block">
                 <a class="nav-link" href="shop.html">Shop <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
               </li>
-              <li class="nav-item is-border-down">
+              <li class="nav-item is-border-down d-none d-lg-block">
                 <a class="nav-link" href="product.html">Product <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
               </li>
               <li class="nav-item is-border-down">
@@ -58,6 +58,7 @@
                   Shop
                 </button>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="shop.html">Shop</a></li>
                   <li><a class="dropdown-item black" href="#">Living Room</a></li>
                   <li><a class="dropdown-item black" href="product.html">Product</a></li>                </ul>
               </li>
@@ -66,8 +67,9 @@
                   Product
                 </button>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="product.html">Product</a></li>
                   <li><a class="dropdown-item black" href="blog.html">Blog</a></li>
-                  <li><a class="dropdown-item black" href="blog_post.html">Blog Post</a></li>
+                  <li><a class="dropdown-item black active" href="#">Blog Post</a></li>
                 </ul>
               </li>
             </ul>
@@ -98,7 +100,7 @@
                 </button>
               </li>
               <li class="nav-item position-relative d-lg-none is-border-down">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="cart.html">
                   <span class="gray">Cart</span> 
                   <i class="uil uil-shopping-bag fs-3 position-absolute end-0 pe-3"></i>
                   <span class="cart-badge position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">0</span>
@@ -344,12 +346,7 @@
   </footer>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      disable: function() {
-      var maxWidth = 768;
-      return window.innerWidth < maxWidth;
-    }
-    });
+    AOS.init({});
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>

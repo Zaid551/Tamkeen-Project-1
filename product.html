@@ -45,28 +45,30 @@
               <li class="nav-item is-border-down">
                 <a class="nav-link" href="index.html">Home</a>
               </li>
-              <li class="nav-item is-border-down">
+              <li class="nav-item is-border-down d-none d-lg-block">
                 <a class="nav-link" href="shop.html">Shop <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
               </li>
-              <li class="nav-item is-border-down">
+              <li class="nav-item is-border-down d-none d-lg-block">
                 <a class="nav-link active" aria-current="page" href="#">Product <i class="uil uil-angle-down fs-3 position-absolute end-0 pe-4"></i></a>
               </li>
               <li class="nav-item is-border-down">
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
-                            <li class="nav-item is-border-down dropdown d-lg-none">
+              <li class="nav-item is-border-down dropdown d-lg-none">
                 <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Shop
                 </button>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="shop.html">Shop</a></li>
                   <li><a class="dropdown-item black" href="#">Living Room</a></li>
-                  <li><a class="dropdown-item black" href="product.html">Product</a></li>                </ul>
+                  <li><a class="dropdown-item black active" href="#">Product</a></li>                </ul>
               </li>
               <li class="nav-item is-border-down dropdown d-lg-none">
                 <button class="btn dropdown-toggle gray" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Product
                 </button>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item black" href="#">Product</a></li>
                   <li><a class="dropdown-item black" href="blog.html">Blog</a></li>
                   <li><a class="dropdown-item black" href="blog_post.html">Blog Post</a></li>
                 </ul>
@@ -99,7 +101,7 @@
                 </button>
               </li>
               <li class="nav-item position-relative d-lg-none is-border-down">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="cart.html">
                   <span class="gray">Cart</span> 
                   <i class="uil uil-shopping-bag fs-3 position-absolute end-0 pe-3"></i>
                   <span class="cart-badge position-absolute top-50 start-100 translate-middle badge border border-light rounded-circle bg-dark py-1 px-2 mt-1">0</span>
@@ -283,19 +285,19 @@
               <p class="gray mb-2">Offer expires in:</p>
               <div class="d-flex gap-3 text-center">
                 <div class="time-box p-3 bg-light rounded shadow-sm">
-                  <h2 class="fw-bold mb-0 text-dark" id="days">02</h2>
+                  <h2 class="mb-0 text-dark" id="days">02</h2>
                   <small class="text-secondary">Days</small>
                 </div>
                 <div class="time-box p-3 bg-light rounded shadow-sm">
-                  <h2 class="fw-bold mb-0 text-dark" id="hours">12</h2>
+                  <h2 class="mb-0 text-dark" id="hours">12</h2>
                   <small class="text-secondary">Hours</small>
                 </div>
                 <div class="time-box p-3 bg-light rounded shadow-sm">
-                  <h2 class="fw-bold mb-0 text-dark" id="minutes">45</h2>
+                  <h2 class="mb-0 text-dark" id="minutes">45</h2>
                   <small class="text-secondary">Minutes</small>
                 </div>
                 <div class="time-box p-3 bg-light rounded shadow-sm">
-                  <h2 class="fw-bold mb-0 text-dark" id="seconds">05</h2>
+                  <h2 class="mb-0 text-dark" id="seconds">05</h2>
                   <small class="text-secondary">Seconds</small>
                 </div>
               </div>
@@ -329,7 +331,7 @@
                     <i class="uil uil-heart" id="heartColor"></i>
                     Wishlist
                   </button>
-                  <button class="add-to-cart-btn btn btn-dark border border-dark mt-3 w-75">
+                  <button class="prod-btn add-to-cart-btn btn btn-dark border border-dark mt-3 w-75">
                     Add to cart
                   </button>
                 </div>
@@ -527,12 +529,7 @@
   </script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      disable: function() {
-      var maxWidth = 768;
-      return window.innerWidth < maxWidth;
-    }
-    });
+    AOS.init({});
   </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   <script src="assets/JS/main.js"></script>

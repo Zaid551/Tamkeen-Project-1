@@ -566,15 +566,7 @@ height: calc(45vh - 10px);
 .button-menu .active{
   border: 1px solid var(--heading-color);
 }
-.time-box {
-  min-width: 70px;
-  display: block;
-}
 
-.time-box h2 {
-  font-size: 34px;
-  line-height: 38px;
-}
 .accordion-item{
   border: none;
 }
@@ -584,6 +576,19 @@ height: calc(45vh - 10px);
   box-shadow: none;
 }
 @media (max-width: 768px){
+  .time-box {
+    min-width: 70px;
+    display: block;
+  }
+
+  .time-box h2 {
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 38px;
+  }
+  .prod-btn{
+    width: 100% !important;
+  }
   .product .breadcrumb li {
     font-size: 12px;
   }
