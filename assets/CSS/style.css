@@ -8,6 +8,10 @@
   --text-color: #6C7275;
   --green-color: #38CB89;
 }
+html, body {
+  overflow-x: hidden;
+  position: relative;
+}
 body{
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -711,6 +715,35 @@ height: calc(45vh - 10px);
 @media (max-width: 992px) {
   .shopMenu.view-3 .item {
     flex-basis: 45%;
+  }
+  .shopMenu.view-3 .item .arrival_images{
+    max-width: 100%;
+    height: 100%;
+  }
+  .shopMenu.view-3 .item button{
+    padding: 3px;
+    font-size: 14px;
+  }
+  .shopMenu.view-3 .item .tips{
+    inset-block-start: 10px;
+    inset-inline-start: 10px;
+    gap: 5px !important;
+  }
+  .shopMenu.view-3 .item .card-body{
+    font-family: 'Inter', sans-serif;
+  }
+  .shopMenu.view-3 .item .card-body h6{
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .shopMenu.view-3 .item .card-body p{
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .shopMenu.view-3 .item .heart,
+  .shopMenu.view-3 .item:hover .heart{
+    inset-block-start: 5px;
+    inset-inline-end: 10px;
   }
 }
 /*********** */

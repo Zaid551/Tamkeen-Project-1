@@ -129,8 +129,8 @@ const addDataToShop = (products) => {
               <ul class="d-flex">
                 ${'<li><i class="uis uis-star"></i></li>'.repeat(5)}
               </ul>
-              <h6>${product.title}</h6>
-              <p class="bold black">${product.price} <span class="text-decoration-line-through gray">${product.oldPrice}</span></p>
+              <h6 class="fw-semibold">${product.title}</h6>
+              <p class="fw-semibold black">${product.price} <span class="text-decoration-line-through gray">${product.oldPrice}</span></p>
             </div>
           </div>
         `;
@@ -170,11 +170,7 @@ const addDataToIndex = () => {
               </div>
               <div class="card-body">
                 <ul class="d-flex">
-                  <li><i class="uis uis-star"></i></li>
-                  <li><i class="uis uis-star"></i></li>
-                  <li><i class="uis uis-star"></i></li>
-                  <li><i class="uis uis-star"></i></li>
-                  <li><i class="uis uis-star"></i></li>
+                  ${'<li><i class="uis uis-star"></i></li>'.repeat(5)}
                 </ul>
                 <h6>${product.title}</h6>
                 <p class="bold black">${product.price} <span class="text-decoration-line-through gray">${product.oldPrice}</span></p>
@@ -515,4 +511,23 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
+});
+/*********** */
+document.addEventListener('DOMContentLoaded', function() {
+    let dynamicOffset = window.innerWidth < 768 ? 50 : 120;
+
+    if (window.innerWidth < 768) {
+        const sideElements = document.querySelectorAll('[data-aos="fade-left"], [data-aos="fade-right"], [data-aos="fade-down-left"]');
+        sideElements.forEach(function(el) {
+            el.setAttribute('data-aos', 'fade-up');
+        });
+    }
+
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: dynamicOffset,
+        delay: 100,
+        easing: 'ease-in-out' 
+    });
 });
